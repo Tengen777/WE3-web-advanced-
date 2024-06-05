@@ -56,7 +56,7 @@ function createStudent() {
 
 
 //empty inputfields
-    document.getElementById('name')= '';
+    document.getElementById('name').value= '';
     document.getElementById('age').value = '';
 
 
