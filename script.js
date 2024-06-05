@@ -69,14 +69,14 @@ function addAlert(status, message){
     let content= ''; 
     if(status){  //true = succes
 
-        content = <div class="alert alert-success" role="alert">
-       ${message}
-      </div>;
+        content = '<div class="alert alert-success" role="alert">  
+        ${message} 
+        </div>';
 
     }else{ // false= error
-       content =  <div class="alert alert-danger" role="alert">
-        ${message}
-        </div>; 
+       content = '<div class="alert alert-danger" role="alert"> 
+       ${message} 
+       </div>'; 
     }   
 
     //add message to top of page (eerst div in html zetten )
@@ -85,15 +85,15 @@ function addAlert(status, message){
 }
 
 
-function showStudents (){
+//function showStudents (){
 
-    for(let s of listOfStudents){
+   // for(let s of listOfStudents){
         //create paragraph fill 
-       let p = document.createElement ('p');
+     //  let p = document.createElement ('p');
         // with content 
-        p.innerHTML = s.showStudents();       
+     //   p.innerHTML = s.showStudents();       
        //and add to div 
-       document.getElementById('content').appendChild(p);
-    }
+     //  document.getElementById('content').appendChild(p);
+  //  }
 
-}
+//}
