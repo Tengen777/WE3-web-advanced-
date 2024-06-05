@@ -4,8 +4,8 @@
 
 console.log('script linked!');
 
-    document.getElementById('register').addEventListener('click', createStudent); 
-    document.getElementById('show').addEventListener('click', showStudents);
+    document.getElementById('register'); 
+  //  document.getElementById('show').addEventListener('click', showStudents);
 
 let listOfStudents= [];
 
@@ -19,7 +19,7 @@ function Student (name, age, degree){
     this.setPersonalDetails = function (details){
         [this.name, this.age, this.degree] = details;
     }
-    this.addCourse = function (...courses){
+    this.addCourses = function (...courses){
         this.courses = [...this.courses, ...courses]; 
 
 
@@ -37,21 +37,14 @@ function createStudent() {
     // geen parameters
     let name= document.getElementByIdByID('name').value; // inputveld
     let age= document.getElementByIdByID('age').value;
+   //radiobuttons (queryselector)
+    let degree = document.querySelector('input[type=radio]:cheked').value;
+    let courses =document.querySelectorAll('input[type=checkbox]:checked');
     
-   
-    let student= new Student(name, age); // nieuw student met de waarden die daar nu zijn (kan ook leeg)
-   
+    let student= new Student(name, age, degree); // nieuw student met de waarden die daar nu zijn (kan ook leeg)
+    student.addCourses();
+
     
-   // while(true){
-     //   let c = prompt('Course?');
-       // if(c){
-         //   student.addCourse(c);
-     //   }else{         
-       //     break;
-    //    }
-    //}
-
-
 //empty inputfields
     document.getElementByIdByID('name').value =''; 
     document.getElementByIdByID('age').value ='';
@@ -61,6 +54,24 @@ function createStudent() {
     //toon alert
     addAlert(true, 'Studen object created succesfully!'); 
     //(status, message)
+
+
+    if(name === '' || age === ''){
+        //checking for empty values. Show error alert
+        addAlert(false, 'An error has happened');
+
+    }else{
+        //Everything is good. Continue to save student
+        let student = new Student(name, age, degree);
+        
+        for(let c of boxes){
+            student.addCourse(c.value);
+        }
+
+        listStudents.push(student);
+
+        }
+    
     
     //console.log(listOfStudents);
 }
