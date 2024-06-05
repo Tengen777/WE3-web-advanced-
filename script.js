@@ -22,8 +22,11 @@ function Student (name, age, degree){
     this.addCourses = function (...courses){
         this.courses = [...this.courses, ...courses]; 
 
+    };
+    this.addCourse = function (course){
+        this.courses.push(course); 
+    };
 
-    }
     this.showStudent = function (){
         let txt = `My name is ${this.name}. I am ${this.age} years old and follow ${this.degree} at EhB. 
         My courses are: ${this.courses.join(', ')}.`;
@@ -42,8 +45,12 @@ function createStudent() {
     let courses =document.querySelectorAll('input[type=checkbox]:checked');
     
     let student= new Student(name, age, degree); // nieuw student met de waarden die daar nu zijn (kan ook leeg)
-    student.addCourses();
+    //add Courses
+        for(let c of boxes){
+            student.addCourse(c.value);
+     }
 
+    }
     
 //empty inputfields
     document.getElementByIdByID('name').value =''; 
@@ -59,20 +66,7 @@ function createStudent() {
     if(name === '' || age === ''){
         //checking for empty values. Show error alert
         addAlert(false, 'An error has happened');
-
-    }else{
-        //Everything is good. Continue to save student
-        let student = new Student(name, age, degree);
         
-        for(let c of boxes){
-            student.addCourse(c.value);
-        }
-
-        listStudents.push(student);
-
-        }
-    
-    
     //console.log(listOfStudents);
 }
 
