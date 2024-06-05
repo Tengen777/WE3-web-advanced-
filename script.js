@@ -46,11 +46,14 @@ function createStudent() {
     
     let student= new Student(name, age, degree); // nieuw student met de waarden die daar nu zijn (kan ook leeg)
     //add Courses
+
         for(let c of boxes){
             student.addCourse(c.value);
      }
 
     }
+    console.log(student);
+
     
 //empty inputfields
     document.getElementByIdByID('name').value =''; 
