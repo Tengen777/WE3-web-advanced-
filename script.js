@@ -53,8 +53,8 @@ function createStudent() {
 
 
 //empty inputfields
-    document.getElementByIdByID('name').value= ''; 
-    document.getElementByIdByID('age').value= '';
+    document.getElementByIdByID('name').value =''; 
+    document.getElementByIdByID('age').value ='';
 
 
     listOfStudents.push(student); //voeg de data toe aan een lijst, een Array
@@ -67,33 +67,61 @@ function createStudent() {
 
 function addAlert(status, message){
     let content= ''; 
+
     if(status){  //true = succes
 
-        content = '<div class="alert alert-success" role="alert">  
-        ${message} 
-        </div>';
+        content = '<div class="alert alert-success" role="alert">
+                    ${message} 
+                    </div>';
 
-    }else{ // false= error
-       content = '<div class="alert alert-danger" role="alert"> 
-       ${message} 
-       </div>'; 
+        } else { // false= error
+            content = '<div class="alert alert-danger" role="alert">
+                    ${message} 
+                    </div>';
     }   
 
     //add message to top of page (eerst div in html zetten )
-
     document.getElementByIdByID('messsages').innerHTML = content; 
 }
 
+function createStudent() {  
+    // geen parameters 
+    let data = [];
+    //Using an array, we are storing all the answers as new elements of that array.
+    data.push(prompt('Name?'));
+    data.push(prompt('Age?'));
+    data.push(prompt('Degree?'));
+     
+   
+    let student= new Student(); // nieuw student met de waarden die daar nu zijn (kan ook leeg)
+    student.setPersonalDetails(data);
+    
+    
+    while(true){
+        let c = prompt('Course?');
+        if(c){
+            student.addCourse(c);
+        }else{         
+            break;
+        }
+    }
+// add to list of students
+    listOfStudents.push(student); 
+   
 
-//function showStudents (){
+    console.log(listOfStudents);
 
-   // for(let s of listOfStudents){
+}
+
+function showStudents (){
+
+    for(let s of listOfStudents){
         //create paragraph fill 
-     //  let p = document.createElement ('p');
+       let p = document.createElement ('p');
         // with content 
-     //   p.innerHTML = s.showStudents();       
+        p.innerHTML = s.showStudents();       
        //and add to div 
-     //  document.getElementById('content').appendChild(p);
-  //  }
+       document.getElementById('content').appendChild(p);
+    }
 
-//}
+}
