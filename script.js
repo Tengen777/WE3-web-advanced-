@@ -59,9 +59,32 @@ function createStudent() {
 
 
     listOfStudents.push(student); //voeg de data toe aan een lijst, een Array
-    console.log(listOfStudents);
-
+    //toon alert
+    addAlert(true, 'Studen object created succesfully!'); 
+    //(status, message)
+    
+    //console.log(listOfStudents);
 }
+
+function addAlert(status, message){
+    let content= ''; 
+    if(status){  //true = succes
+
+        content = <div class="alert alert-success" role="alert">
+       ${message}
+      </div>;
+
+    }else{ // false= error
+       content =  <div class="alert alert-danger" role="alert">
+        ${message}
+        </div>; 
+    }   
+
+    //add message to top of page (eerst div in html zetten )
+
+    document.getElementByIdByID('messsages').innerHTML = content; 
+}
+
 
 function showStudents (){
 
