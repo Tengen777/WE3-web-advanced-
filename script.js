@@ -53,9 +53,8 @@ function createStudent() {
 
 
 //empty inputfields
-    document.getElementByIdByID('name').value= ''; // inputveld
+    document.getElementByIdByID('name').value= ''; 
     document.getElementByIdByID('age').value= '';
-
 
 
     listOfStudents.push(student); //voeg de data toe aan een lijst, een Array
